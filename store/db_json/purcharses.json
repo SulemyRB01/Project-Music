@@ -1,0 +1,54 @@
+[
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "2006-AW-BTB", "quantity": 40 },
+      { "label": "2004-U-C", "quantity": 40 },
+      { "label": "2001-S-SDL", "quantity": 40 },
+      { "label": "2000-BS-OIDIA", "quantity": 40 },
+      { "label": "1998-C-B", "quantity": 40 },
+      { "label": "1998-M-ROL", "quantity": 40 },
+      { "label": "1997-AB-R", "quantity": 40 },
+      { "label": "1997-SP-S", "quantity": 40 }
+    ]
+  },
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "2004-U-C", "quantity": 15 },
+      { "label": "1998-M-ROL", "quantity": 60 }
+    ]
+  },
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "1997-AB-R", "quantity": 10 }
+    ]
+  },
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "2001-S-SDL", "quantity": 30 },
+      { "label": "2004-U-C", "quantity": 50 },
+      { "label": "2000-BS-OIDIA", "quantity": 20 }
+    ]
+  },
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "1997-AB-R", "quantity": 80 },
+      { "label": "1997-SP-S", "quantity": 45 },
+      { "label": "2004-U-C", "quantity": 70 }
+    ]
+  },
+  {
+    "date": "2015-06-12",
+    "albums": [
+      { "label": "2006-AW-BTB", "quantity": 100 },
+      { "label": "2001-S-SDL", "quantity": 40 },
+      { "label": "2000-BS-OIDIA", "quantity": 25 },
+      { "label": "1998-C-B", "quantity": 70 },
+      { "label": "1997-AB-R", "quantity": 60 }
+    ]
+  }
+]

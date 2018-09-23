@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "album": "Back to Black",
+    "artist": "Amy Winehouse ",
+    "country": "USA",
+    "year": 2006,
+    "label": "2006-AW-BTB"
+  },
+  {
+    "id": 2,
+    "album": "Confessions",
+    "artist": "Usher",
+    "country": "USA",
+    "year": 2004,
+    "label": "2004-U-C"
+  },
+  {
+    "id": 3,
+    "album": "Servicio de lavandería",
+    "artist": "Shakira",
+    "country": "Colombia",
+    "year": 2001,
+    "label": "2001-S-SDL"
+  },
+  {
+    "id": 4,
+    "album": "Oops!... I Did It Again",
+    "artist": "Britney Spears ",
+    "country": "USA",
+    "year": 2000,
+    "label": "2000-BS-OIDIA"
+  },
+  {
+    "id": 5,
+    "album": "Believe",
+    "artist": "Cher",
+    "country": "USA",
+    "year": 1998,
+    "label": "1998-C-B"
+  },
+  {
+    "id": 6,
+    "album": "Ray of Light",
+    "artist": "Madonna",
+    "country": "USA",
+    "year": 1998,
+    "label": "1998-M-ROL"
+  },
+  {
+    "id": 7,
+    "album": "Spiceworld",
+    "artist": "Spice Girls",
+    "country": "UK",
+    "year": 1997,
+    "label": "1997-SP-S"
+  },
+  {
+    "id": 8,
+    "album": "Romanza",
+    "artist": "Andrea Bocelli",
+    "country": "Italy",
+    "year": 1997,
+    "label": "1997-AB-R"
+  }
+]
