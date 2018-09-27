@@ -1,22 +1,22 @@
 'use strict'
 
-import albumsList from '../db_json/albums.json'
+import allAlbumsList from '../db_json/albums.json'
 import commentsList from '../db_json/comments.json'
 import purcharsesList from '../db_json/purcharses.json'
 import salesList from '../db_json/sales.json'
 
 //albums.js
-exports.getAlbums = function () {
-	return albumsList
+const getAlbums = function () {
+	return allAlbumsList
 }
 
-exports.getAlbum = function (id) {
-  	return albumsList.find(album => {
+const getAlbum = function (id) {
+  	return allAlbumsList.find(album => {
 		  return album.id == id
 	})
 }
 
-exports.rateAlbum = function (album, comments) {
+const rateAlbum = function (album, comments) {
 	let commentStarts =  comments.filter(comment => {
 		return comment.albumId == album.id && comment.stars
 	})
@@ -36,24 +36,24 @@ exports.rateAlbum = function (album, comments) {
 	return rating / stars.length
 }
 
-//comments.js
-exports.getComments = function () {
+// //comments.js
+const getComments = function () {
 	return commentsList
 }
 
-exports.getAlbumComments = function (album) {
+const getAlbumComments = function (album) {
 	return commentsList.filter(comment => {
 		return comment.albumId == album.id
 	})
 }
 
-//stock.js
-exports.albumStock = function (id) {
+// //stock.js
+const albumStock = function (id) {
 	let totalPQuantity = 0
   let totalSQuantity = 0
   let total = 0
 
-	let labelAlbum = albumsList.find(album => {
+	let labelAlbum = allAlbumsList.find(album => {
 		return album.id == id
 	}).label
  
@@ -86,12 +86,12 @@ exports.albumStock = function (id) {
 	return total
 }
 
-//**Purcharses
-exports.purcharses = function () {
+// //**Purcharses
+const purcharses = function () {
 	return purcharsesList
 }
 
-var purchasedAlbumsAll = function () {
+const purchasedAlbumsAll = function () {
 	let total = 0
 
 	for(const purcharse of purcharsesList) {
@@ -109,13 +109,13 @@ var purchasedAlbumsAll = function () {
 	return total
 }
 
-exports.purchasedAlbums = function (filter) {
+const purchasedAlbums = function (filter) {
 	let total = 0
 	if(filter) {
 	  let filterLabel = filter
 
 		if (!(isNaN(filter))) {
-	 	  let album = albumsList.find(album => {
+	 	  let album = allAlbumsList.find(album => {
 	 	  	return album.id == filter
 			})
 			if (album) {
@@ -146,12 +146,12 @@ exports.purchasedAlbums = function (filter) {
 	}
 }
 
-//**Sales
-exports.sales = function () {
+// //**Sales
+const sales = function () {
 	return salesList
 }
 
-var soldAlbumsAll = function () {
+const soldAlbumsAll = function () {
 	let total = 0
 
 	for(const sale of salesList) {
@@ -169,14 +169,14 @@ var soldAlbumsAll = function () {
 		return total
 }
 
-exports.soldAlbums = function (filter) {
+const soldAlbums = function (filter) {
 	let total = 0
 	if(filter)
 	{
 	  let filterLabel = filter
 
 		if (!(isNaN(filter))) {
-	 	  let album = albumsList.find(album => {
+	 	  let album = allAlbumsList.find(album => {
 	 	  	return album.id == filter
 			})
 			if (album) {
@@ -207,18 +207,17 @@ exports.soldAlbums = function (filter) {
 	}
 }
 
-
-//index.js
-exports.albumsList = function () {
-	const albums = albumsList
+// //index.js
+const albumsList = function () {
+	const albums = allAlbumsList
 	const comments = commentsList
 
 	for (const album of albums) {
-		album.rating = exports.rateAlbum({id:album.id}, comments)
+		album.rating = rateAlbum({id:album.id}, comments)
 	}
 
 	 for (const album of albums) {
-  	album.stock = exports.albumStock(album.id)
+  	album.stock = albumStock(album.id)
   }
   
   albums.sort(function (a, b) {
@@ -234,24 +233,8 @@ exports.albumsList = function () {
 	return albums
 }
 
-exports.bestAlbum = function () {
-	const albums = albumsList
-
-	albums.sort(function (a, b) {
-  	if (a.rating < b.rating) {
-    	return 1;
-  	}
-  	if (a.rating > b.rating) {
-    	return -1;
-  	}
-  return 0;
-	})
-
-	return albums[0].id
-}
-
-exports.bestAlbum = function () {
-	const albums = albumsList
+const bestAlbum = function () {
+	const albums = albumsList()
 
 	albums.sort(function (a, b) {
   	if (a.rating < b.rating) {
@@ -266,11 +249,27 @@ exports.bestAlbum = function () {
 	return albums[0]
 }
 
-exports.mostSoldAlbum = function () {
-	const albums = albumsList
+const worstAlbum = function () {
+	const albums = albumsList()
+
+	albums.sort(function (a, b) {
+  	if (a.rating > b.rating) {
+    	return 1;
+  	}
+  	if (a.rating < b.rating) {
+    	return -1;
+  	}
+  return 0;
+	})
+
+	return albums[0]
+}
+
+const mostSoldAlbum = function () {
+	const albums = albumsList()
   
   for(const album of albums) {
-  	album.solds = exports.soldAlbums(album.id)
+  	album.solds = soldAlbums(album.id)
   }
 
 	albums.sort(function (a, b) {
@@ -286,4 +285,41 @@ exports.mostSoldAlbum = function () {
 	return albums[0]
 }
 
+const lessSoldAlbum = function () {
+	const albums = albumsList()
 
+	for(const album of albums) {
+  	album.solds = soldAlbums(album.id)
+  }
+
+	albums.sort(function (a, b) {
+  	if (a.solds > b.solds) {
+    	return 1;
+  	}
+  	if (a.solds < b.solds) {
+    	return -1;
+  	}
+  return 0;
+	})
+
+	return albums[0]
+}
+
+
+export default { 
+	getAlbums,
+	getAlbum,
+	rateAlbum,
+	getComments,
+	getAlbumComments, 
+	albumStock,
+	purcharses, 
+	purchasedAlbums, 
+	sales, 
+	soldAlbums,
+	albumsList, 
+	bestAlbum,
+	mostSoldAlbum,
+	lessSoldAlbum,
+	worstAlbum
+}

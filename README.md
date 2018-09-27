@@ -1,55 +1,51 @@
-# Prueba Front-end (Worky)
+# Proyecto tienda de discos
+Este proyecto esta divido en dos partes
+* libreria/biblioteca
+* Webapp
 
-## Instrucciones
+## Requerimientos
+ * `node ~> 9.9.0`
 
-### Prueba programación
+# Libreria/Biblioteca
+----
 
-Construir una librería para una tienda de discos. La librería debería de tener
-como funciones básicas:
+La libreria se realizo de acuerdo al test.
 
-- Mostrar lista de discos disponibles
-- Permitir que se realicen comentarios sobre cada disco con calificación
-  opcional del 1 al 5
-- Mostrar la calificación final de cada disco en base a los comentarios
-- Tener un control de inventario con la cantidad de discos disponibles
-- Listar las ventas de cada disco
-- Listar las compras que se realizan en el almacen
+## Corriendo las pruebas
 
-Para su desarrollo utilizar el diseño sugerido en las pruebas unitarias para
-realizar la librería. De la misma manera seguir las reglas de estilo definidas
-dentro del proyecto.
+```
+ $ npm install
+ $ npm run test
+```
 
-## Prueba maquetación
+### Tareas realizadas
 
-Agregar una interfaz web a la librería construida en la prueba de programación.
-Para esta prueba se pueden utilizar servicios de apoyo como generadores de
-texto, imágenes, etc. El objetivo es mostrar la información que se
-incluye en la prueba en un sitio web. No es necesario incluir formularios para
-la creación de nuevos comentarios, discos, compras, etc.
+ * Mostrar lista de discos disponibles
+ * Mostrar la calificación final de cada disco en base a los comentarios
+ * Tener un control de inventario con la cantidad de discos disponibles
+ * Listar las ventas de cada disco
+ * Listar las compras que se realizan en el almacen
+ * Disco menos vendido
+ * Disco menos valorado
 
-## Puntos extra
+# Webapp
+-----
 
-### Programación
+Music-vue es un proyecto realizado con vue.
+Es necesario ir a la carpeta music-vue
 
-- Proponer una estructura de API que permita mejorar el rendimiento del front
-- Buscar la manera de reducir las llamadas de red que se realizan en la librería
-- Agregar funciones adicionales para obtener información como:
-  - Disco menos vendido
-  - Disco menos valorado
-  - Compra más grande
-  - Mejor comentario
-  - Peor comentario
-  - Album con más comentarios
-- Lograr una cobertura de 100% de código fuente
-- Seguir un paradigma funcional para el desarrollo de la librería
-- Agregar tiempos de respuesta de 1s a cada petición y minimizar al máximo
-  posible el tiempo de ejecución de cada función
+## Levantando el proyecto
 
-### Maquetación
+```
+ $ cd music-vue
+ $ npm install
+ $ npm run serve
+```
 
-- Utilizar un framework de desarrollo como Angular, Vue o React
-- Añadir estilos al sitio sin la ayuda de frameworks como Bootstrap o Foundation
-- Utilizar SASS para la creación de estilos
-- Utilizar la metodología BEM el diseño de las clases de estilo
-- Utilizar un servicios BasS o un servidor json para permitir la interacción con
-  el sitio diseñado
+### Tareas realizadas
+
+ * Agregar una interfaz web a la librería construida en la prueba de programación.
+ * Utilizar un framework de desarrollo como Angular, Vue o React
+ * Añadir estilos al sitio sin la ayuda de frameworks como Bootstrap o Foundation
+ * Utilizar SASS para la creación de estilos
+ * Utilizar la metodología BEM el diseño de las clases de estilo
